@@ -1,9 +1,9 @@
-'use client';
+"use client";
 
-import { useRef, useState } from 'react';
-import Image from 'next/image';
+import { useRef, useState } from "react";
+import Image from "next/image";
 
-import classes from './image-picker.module.css';
+import classes from "./image-picker.module.css";
 
 export default function ImagePicker({ label, name }) {
   const [pickedImage, setPickedImage] = useState();
@@ -17,6 +17,7 @@ export default function ImagePicker({ label, name }) {
     const file = event.target.files[0];
 
     if (!file) {
+      setPickedImage(null);
       return;
     }
 
@@ -51,6 +52,7 @@ export default function ImagePicker({ label, name }) {
           name={name}
           ref={imageInput}
           onChange={handleImageChange}
+          // multiple // for multiple img
         />
         <button
           className={classes.button}
